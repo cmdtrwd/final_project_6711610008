@@ -1,0 +1,34 @@
+// ═══════════════════════════════════════════
+// ION SODA — MIXINS
+// ═══════════════════════════════════════════
+@use 'variables' as v;
+
+@mixin flex-center($direction: row) {
+  display: flex; flex-direction: $direction;
+  align-items: center; justify-content: center;
+}
+@mixin flex-between {
+  display: flex; align-items: center; justify-content: space-between;
+}
+@mixin transition-smooth {
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+@mixin glass-header {
+  background-color: rgba(252, 248, 248, 0.80);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+@mixin btn-primary-fill {
+  background: linear-gradient(160deg, v.$c-primary 0%, v.$c-primary-dark 100%);
+}
+@mixin btn-primary {
+  @include btn-primary-fill;
+  color: v.$c-on-primary; border: none;
+  font-family: v.$font-display; font-weight: 700;
+  text-transform: uppercase; cursor: pointer;
+  @include transition-smooth;
+  &:hover {
+    background: linear-gradient(160deg, v.$c-accent 0%, lighten(v.$c-accent, 8%) 100%);
+    color: v.$c-primary; transform: scale(1.02);
+  }
+}

@@ -1,0 +1,18 @@
+@use "variables" as v;
+
+// 1. Global Reset
+* {
+  margin: 0; padding: 0;
+  box-sizing: border-box;
+  border-radius: v.$radius-sharp !important;
+}
+li { list-style: none; }
+a  { text-decoration: none; color: inherit; }
+
+body {
+  font-family: v.$font-body;
+  background-color: v.$c-surface;
+  color: v.$c-primary;
+  line-height: 1.6;
+  overflow-x: hidden;
+}

@@ -1,0 +1,24 @@
+// ═══════════════════════════════════════════
+// ION SODA — VARIABLES
+// ═══════════════════════════════════════════
+
+// Fonts
+$font-display : 'Space Grotesk', sans-serif;
+$font-body    : 'Manrope', sans-serif;
+
+// Colors
+$c-primary        : #003215;
+$c-primary-dark   : #004b23;
+$c-primary-rgb    : 0, 50, 21;
+$c-secondary      : #506600;
+$c-accent         : #c1f100;          // Neon Zest CTA
+$c-surface        : #fcf8f8;
+$c-surface-low    : #f6f3f2;
+$c-surface-highest: #e5e2e1;
+$c-on-primary     : #ffffff;
+
+// Radius — strictly 0px (Design spec)
+$radius-sharp: 0px;
+
+// Header
+$header-height: 64px;

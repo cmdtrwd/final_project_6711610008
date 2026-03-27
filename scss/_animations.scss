@@ -1,0 +1,76 @@
+@use "variables" as v;
+@use "mixins" as m;
+
+// 2. Animations
+@keyframes skeleton-loading {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(-1deg); }
+  50%       { transform: translateY(-16px) rotate(1deg); }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.skeleton-x {
+  background: linear-gradient(90deg, v.$c-surface-highest 25%, v.$c-surface-low 50%, v.$c-surface-highest 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+}
+
+// ═══════════════════════════════════════════
+// PREMIUM SCROLL ANIMATIONS
+// ═══════════════════════════════════════════
+
+.reveal-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+
+  &.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Staggered delays
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+
+// ═══════════════════════════════════════════
+// LOADING SCREEN
+// ═══════════════════════════════════════════
+.site-loader {
+  position: fixed;
+  inset: 0;
+  background: v.$c-surface;
+  z-index: 99999;
+  @include m.flex-center;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.8s;
+  
+  &.fade-out {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .loader-logo {
+    font-family: v.$font-display;
+    font-size: 3rem;
+    font-weight: 900;
+    color: v.$c-primary;
+    letter-spacing: 0.1em;
+    animation: pulse 1.5s infinite alternate;
+  }
+}
+
+@keyframes pulse {
+  0% { opacity: 0.3; transform: scale(0.98); }
+  100% { opacity: 1; transform: scale(1); }
+}
